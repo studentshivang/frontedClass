@@ -1,20 +1,18 @@
 import React from 'react';
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Center from "./components/Center";
-import Footer from "./components/Footer";
-import ListComp from "./components/ListComp";
-import Form from "./components/Form";
+import Home from './components/Home';
+
 
 function App() {
   return (
     <div className="App">
+      <Home/>
       {/* <h1>Hello from parent component</h1> */}
-      <Navbar />
+      {/* <Navbar />
       <Center />
       <ListComp />
       <Form />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
