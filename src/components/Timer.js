@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-const Home = () => {
+const Timer = () => {
   // api calling for getting
   // logged in user details  e.g. current api
   // const [object, setObject] = useState({
@@ -53,12 +53,24 @@ const Home = () => {
     <>
       <div className="mt-5">
         <ToastContainer />
-        <h1>{val}</h1>
-
+        
+        <h1>{val} seconds</h1>
+        <button
+          className="btn btn-info"
+          onClick={() => {
+            setVal(0);
+            clearInterval(interval_id);
+            setStarted(false);
+          }}
+        >
+          Reset
+        </button>
+        <br />
+        <br />
         <button className="btn btn-success" onClick={startTimer}>
           start
         </button>
-        {"    "}
+        {"      "}
         <button
           className="btn btn-danger"
           onClick={() => {
@@ -70,19 +82,10 @@ const Home = () => {
         </button>
         <br />
         <br />
-        <button
-          className="btn btn-info"
-          onClick={() => {
-            setVal(0);
-            clearInterval(interval_id);
-            setStarted(false);
-          }}
-        >
-          Reset
-        </button>
+        
       </div>
     </>
   );
 };
 
-export default Home;
+export default Timer;
