@@ -1,20 +1,72 @@
 import React, { useState } from "react";
+import axios from "axios";
 function Form() {
-  const [name,setName] = useState("")
-  const [email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [age, setAge] = useState();
+  const [password, setPassword] = useState("");
+  const [dob, setDob] = useState(new Date());
+
+  const handleSubmit= async(event)=>{
+    event.preventDefault();
+    try {
+      const res=await axios.post('/signup',{name, age, email, password, dob });
+      alert(res.data.message)
+    } catch (err) {
+      alert(err);
+    }
+    // console.log(name+" :"+email+" :"+password+" "+age+" "+dob);
+    // console.log(name+" :"+email+" :"+password);
+  }
   return (
     <div>
-      <form className="my-3">
-        <h1><label htmlFor="name">Enter your full name:</label></h1>
-        {" "}
-        <input type="text" placeholder="Full name" value={name} onChange={(e)=>setName(e.target.value)}/>
-        <h1><label htmlFor="name">Enter your email id:</label></h1>
-        {" "}
-        <input type="email" placeholder="Your Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-        <h1><label htmlFor="name">Create Password:</label></h1>
-        {" "}
-        <input type="password" placeholder="Your Email" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+      <form className="my-3" onSubmit={handleSubmit}>
+        <h1>
+          <label htmlFor="name">Enter your full name:</label>
+        </h1>{" "}
+        <input
+          type="text"
+          placeholder="Full name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <h1>
+          <label htmlFor="name">Enter your email id:</label>
+        </h1>{" "}
+        <input
+          type="email"
+          placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <h1>
+          <label htmlFor="name">Create Password:</label>
+        </h1>{" "}
+        <input
+          type="password"
+          placeholder="Your Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <h1>
+          <label htmlFor="name">Create Age:</label>
+        </h1>{" "}
+        <input
+          type="number"
+          placeholder="Your Age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+        <h1>
+          <label htmlFor="name">Create DOB:</label>
+        </h1>{" "}
+        <input
+          type="date"
+          placeholder="Your Dob"
+          value={dob}
+          onChange={(e) => setDob(e.target.value)}
+        />
+        <button type="submit">Submit</button>
       </form>
       <div className="display">
         <h4>Name: {name}</h4>
