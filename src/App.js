@@ -10,13 +10,14 @@ import "./App.css";
 // import Increment from './components/Increment';
 // import ArrayMapping from './components/ArrayMapping';
 // import Form from './components/Form';
-import OnlineUsers from './components/OnlineUsers';
+import News from './components/News';
 
 function App() {
   // const [title,setTitle] = useState("The Big Bang Theory")
   return (
     <div className="App">
-      <OnlineUsers/>
+      <News/>
+      {/* <OnlineUsers/> */}
       {/* <Form/> */}
       {/* <ArrayMapping/> */}
       {/* <Increment/> */}
